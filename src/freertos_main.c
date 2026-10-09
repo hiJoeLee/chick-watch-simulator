@@ -14,6 +14,7 @@
 #if LV_USE_OS == LV_OS_FREERTOS
 
 #include "hal/hal.h"
+#include "pet.h"
 #include <stdio.h>
 
 // ........................................................................................................
@@ -127,9 +128,9 @@ void lvgl_task(void *pvParameters)
     lv_init();
 
     /*Initialize the HAL (display, input devices, tick) for LVGL*/
-    sdl_hal_init(320, 480);
-    /* Show simple hello world screen */
-    create_hello_world_screen();
+    sdl_hal_init(410, 502);
+    /* 启动与标准 SDL 模拟器相同的电子宠物界面。 */
+    pet_create(lv_screen_active(), 410, 502);
 
     while (true){
         lv_timer_handler(); /* Handle LVGL tasks */

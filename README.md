@@ -4,6 +4,14 @@
 
 This project is pre-configured for VSCode and should work work on Windows, Linux and MacOs as well. FreeRTOS is also included and can be optionally enabled to better simulate embedded system's behavior. 
 
+## 电子宠物当前配置
+
+- 模拟器画布：410 × 502，与微雪 2.06 英寸 AMOLED 的目标分辨率一致。
+- 宠物素材：`src/pet_chick_192.c`，由角色设定包的透明主立绘导出；走路、饥饿与睡觉贴图均位于 `assets/runtime/chick/`。
+- 宠物入口：`src/pet.c`；包含待机、四帧走路、开心弹跳、饥饿、睡觉，以及呼吸、心跳和眨眼微动画。
+- 演示会每 5 秒自动轮换：待机 → 走路 → 饥饿 → 睡觉；点击小鸡会触发开心弹跳。
+- 运行贴图转换工具：`tools/prepare_chick_sprite.py`、`tools/prepare_walk_sprites.py`、`tools/prepare_state_sprites.py` 和 `tools/generate_lvgl_argb8888.py`。
+
 ## Get started
 
 ### Install SDL and the build tools

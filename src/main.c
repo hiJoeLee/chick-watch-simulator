@@ -20,11 +20,10 @@
   #include <pthread.h>
 #endif
 #include "lvgl/lvgl.h"
-#include "lvgl/examples/lv_examples.h"
-#include "lvgl/demos/lv_demos.h"
 #include <SDL.h>
 
 #include "hal/hal.h"
+#include "pet.h"
 
 /*********************
  *      DEFINES
@@ -61,15 +60,10 @@ int main(int argc, char **argv)
   lv_init();
 
   /*Initialize the HAL (display, input devices, tick) for LVGL*/
-  sdl_hal_init(320, 480);
+  sdl_hal_init(410, 502);
 
-  /* Run the default demo */
-  /* To try a different demo or example, replace this with one of: */
-  /* - lv_demo_benchmark(); */
-  /* - lv_demo_stress(); */
-  /* - lv_example_label_1(); */
-  /* - etc. */
-  lv_demo_widgets();
+  /* 启动电子宠物主界面（P0 动画） */
+  pet_create(lv_screen_active(), 410, 502);
 
   while(1) {
     /* Periodically call the lv_task handler.
